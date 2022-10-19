@@ -1,1 +1,87 @@
-g
+Sql
+
+ 
+
+1)
+USE sakila 
+SELECT * FROM sakila.actor ; 
+
+ 
+
+2)
+SELECT * FROM sakila.actor WHERE first_name = 'John' 
+
+ 
+3)
+SELECT * FROM sakila.actor WHERE last_name = 'Neeson' 
+
+ 
+
+4. Find all actord with ID number divisible by 10  
+
+SELECT actor_id FROM sakila.actor WHERE actor_id%10=0 
+
+ 
+
+5)
+
+SELECT description FROM sakila.film where film_id = 100 ; 
+
+ 
+
+6)
+
+SELECT title FROM sakila.film where rating = 'R'  
+
+ 
+
+7)
+
+SELECT title FROM sakila.film WHERE rating != 'R'  
+
+ 
+
+8)
+
+SELECT title FROM sakila.film WHERE special_features = 'Deleted Scenes' 
+
+ 
+
+10)
+SELECT last_name FROM sakila.actor  
+
+WHERE last_name IN (SELECT last_name FROM sakila.actor GROUP BY last_name HAVING COUNT (*) > 1); 
+ 
+
+ 
+
+11) 
+
+SELECT actor_id, COUNT (actor_id) FROM sakila.film_actor GROUP BY actor_id ORDER BY count(actor_id) desc; 
+
+
+ 
+
+13)
+
+SELECT avg (length) FROM sakila.film 
+
+ 
+
+ 
+
+15) 
+
+SELECT title FROM sakila.film WHERE description LIKE '%Robot%' 
+
+ 
+
+16) 
+
+SELECT title FROM sakila.film ORDER BY length DESC ; 
+
+
+17) 
+
+SELECT COUNT (title) FROM sakila.film WHERE release_year = '2010'  
+
